@@ -1,0 +1,16 @@
+{
+  "name": "tallyfold-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A landing page template for AI document workflows in finance, illustrated with animated Illos HUD illustrations.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "dev": "vite --port 4883 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 4883 --strictPort"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

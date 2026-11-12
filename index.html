@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tallyfold: audit workpapers that tie every figure to its source</title>
+<meta name="description" content="Tallyfold ties each figure in a client's statements to the page and line it came from, and sends anything that doesn't match to a reviewer. For audit, tax and deal advisory teams.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M3 3h4v10H3zM9 3h4v4H9z%22 fill=%22%231daf9c%22/%3E%3C/svg%3E">
+<script>
+  // Theme: a saved choice wins, then the system setting. Runs before paint so nothing flashes.
+  (function () {
+    var r = document.documentElement, t = null;
+    r.classList.add("js");
+    try { t = localStorage.getItem("tallyfold-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    r.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/src/style.css">
+<style>
+/* The credit every Illos example carries. It takes the footer's own text colour, so it fits light and dark. */
+a.illos-credit.illos-credit { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px 0 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, currentColor 22%, transparent); color: inherit; font-size: 13px; font-weight: 400; line-height: 1; letter-spacing: normal; text-transform: none; text-decoration: none; white-space: nowrap; transition: border-color 150ms ease-out; }
+.illos-credit svg { width: 14px; height: 14px; flex: none; fill: currentColor; }
+@media (hover: hover) and (pointer: fine) { a.illos-credit.illos-credit:hover { border-color: color-mix(in srgb, currentColor 45%, transparent); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="shell">
+    <a class="logo" href="#" aria-label="Tallyfold home"><i aria-hidden="true"></i>Tallyfold</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#product">Product</a><a href="#desks">Practices</a><a href="#security">Security</a><a href="#results">Results</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="bar-right">
+      <button class="btn btn-ghost btn-sm theme" id="theme" type="button" aria-label="Switch theme">
+        <svg class="i-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1Z" stroke-linejoin="round"/></svg>
+        <svg class="i-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1" stroke-linecap="round"/></svg>
+      </button>
+      <a class="btn btn-main btn-sm" href="#start">Book a demo</a>
+      <details class="menu">
+        <summary class="btn btn-ghost btn-sm" aria-label="Menu"><span class="x" aria-hidden="true"></span><span>Menu</span></summary>
+        <nav class="sheet" aria-label="Mobile">
+          <a href="#product" data-n="01">Product</a><a href="#desks" data-n="02">Practices</a><a href="#security" data-n="03">Security</a><a href="#results" data-n="04">Results</a><a href="#faq" data-n="05">FAQ</a>
+          <a class="btn btn-main" href="#start">Book a demo</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="shell hero">
+    <div class="grid">
+      <div class="panel pad hero-title">
+        <p class="mono">Workpapers for audit, tax and deal advisory</p>
+        <h1>Tie out the statements. <span>Flag what's off.</span></h1>
+      </div>
+      <div class="panel pad hero-side">
+        <p>Tallyfold reads a client's <b>trial balance</b>, bank statements and contracts, links each figure to the <b>page and line</b> it came from, and sends exceptions to a reviewer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#start">Book a demo</a>
+          <a class="btn btn-ghost" href="#product">Take the tour</a>
+        </div>
+        <a class="watch" href="#"><i aria-hidden="true"><svg viewBox="0 0 10 10" fill="currentColor"><path d="M2 1l7 4-7 4z"/></svg></i><span><b>Watch a tie-out</b>A 180-page annual report in six minutes</span></a>
+      </div>
+      <figure class="panel hero-art">
+        <div data-illos>
+<!-- illos:intake -->
+        </div>
+      </figure>
+      <div class="panel docs">
+        <p>Reads the files an <em>engagement</em> runs on</p>
+        <ul class="mono"><li>Trial balances</li><li>Bank statements</li><li>Sales contracts</li><li>Invoices</li><li>Tax returns</li><li>Payroll reports</li><li>Board minutes</li><li>Loan agreements</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell block" id="product">
+    <div class="head">
+      <p class="mono">01 / Product</p>
+      <h2>One file for the whole engagement.</h2>
+      <p>Every figure links back to its source. Change one, and every schedule and memo built on it changes too.</p>
+    </div>
+    <div class="grid">
+      <article class="panel pad card c-context">
+        <span class="tag mono">Client sources</span>
+        <h3>Search a client's ledgers, contracts and bank feeds in one place</h3>
+        <div class="art" data-illos>
+<!-- illos:context -->
+        </div>
+        <div class="reads mono"><span>Ledgers</span><span>Contracts</span><span>Bank feeds</span><span>Data rooms</span><span>Models</span><span>Mailboxes</span></div>
+        <a class="go" href="#">How search works</a>
+      </article>
+      <article class="panel pad card c-agents">
+        <span class="tag mono">Test library</span>
+        <h3>Slot a ready-made test into the procedure your firm already uses</h3>
+        <div class="art" data-illos>
+<!-- illos:agents -->
+        </div>
+        <a class="go" href="#">See the tests</a>
+      </article>
+      <article class="panel pad card c-docs">
+        <span class="tag mono">One set of numbers</span>
+        <h3>Edit a figure once and the slide, schedule and memo all follow</h3>
+        <div class="art" data-illos>
+<!-- illos:docs -->
+        </div>
+        <a class="go" href="#">See an example file</a>
+      </article>
+      <article class="panel pad c-patch">
+        <div class="copy card">
+          <span class="tag mono">Integrations</span>
+          <h3>Link your practice software by API or an open protocol</h3>
+          <p style="color:var(--muted)">Records move in both directions. Pull a link and nothing on your side is lost; plug it back in and it syncs from where it stopped.</p>
+          <a class="go" href="#">See integrations</a>
+        </div>
+        <div data-illos>
+<!-- illos:connections -->
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell block" id="desks">
+    <div class="head">
+      <p class="mono">02 / Practices</p>
+      <h2>Set up for three kinds of engagement.</h2>
+    </div>
+    <div class="panel tablist" role="tablist" aria-label="Practices">
+      <button type="button" role="tab" id="tab-lending" aria-controls="desk-lending" aria-selected="true" class="mono">Audit</button>
+      <button type="button" role="tab" id="tab-re" aria-controls="desk-re" aria-selected="false" tabindex="-1" class="mono">Tax</button>
+      <button type="button" role="tab" id="tab-property" aria-controls="desk-property" aria-selected="false" tabindex="-1" class="mono">Deal advisory</button>
+    </div>
+    <div class="panel tabpanel" id="desk-lending" role="tabpanel" aria-labelledby="tab-lending">
+      <div class="desk">
+        <div class="desk-main">
+          <p class="mono">Practice 1 of 3</p>
+          <h3>Audit</h3>
+          <p>Tie the statements to the ledger and the ledger to the bank, line by line.</p>
+          <div class="flow"><p class="mono">Tests</p><ul><li>Revenue testing</li><li>Bank reconciliations</li><li>Lease schedules</li><li>Going concern</li></ul></div>
+          <a class="go" href="#">More on audit</a>
+        </div>
+        <div class="desk-side">
+          <div class="figure"><b>11,800</b><span>Figures tied out on one mid-size audit, with 14 sent to a reviewer</span></div>
+          <figure><blockquote>Our seniors used to tick and bump for a week. Now they read the fourteen items that didn't tie.</blockquote><figcaption class="mono">Ada Lindqvist, Audit Partner, Fernhill &amp; Roe</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="panel tabpanel" id="desk-re" role="tabpanel" aria-labelledby="tab-re">
+      <div class="desk">
+        <div class="desk-main">
+          <p class="mono">Practice 2 of 3</p>
+          <h3>Tax</h3>
+          <p>Pull figures from returns, payroll and invoices, and check them against last year's file.</p>
+          <div class="flow"><p class="mono">Tests</p><ul><li>Return prep</li><li>Sales tax</li><li>R&amp;D claims</li><li>Provisions</li></ul></div>
+          <a class="go" href="#">More on tax</a>
+        </div>
+        <div class="desk-side">
+          <div class="figure"><b>3&times;</b><span>Returns prepared per manager in busy season</span></div>
+          <figure><blockquote>The return and the workpaper agree because they come from the same numbers. Review notes fell by half.</blockquote><figcaption class="mono">Omar Feld, Tax Director, Pemberly Stone</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="panel tabpanel" id="desk-property" role="tabpanel" aria-labelledby="tab-property">
+      <div class="desk">
+        <div class="desk-main">
+          <p class="mono">Practice 3 of 3</p>
+          <h3>Deal Advisory</h3>
+          <p>Rebuild a target's earnings from its data room and show the buyer where each adjustment came from.</p>
+          <div class="flow"><p class="mono">Tests</p><ul><li>Quality of earnings</li><li>Working capital</li><li>Debt-like items</li><li>Data room review</li></ul></div>
+          <a class="go" href="#">More on deal advisory</a>
+        </div>
+        <div class="desk-side">
+          <div class="figure"><b>48 hrs</b><span>From data room access to a first earnings bridge</span></div>
+          <figure><blockquote>Buyers always ask where a number came from. We click it and show them the page.</blockquote><figcaption class="mono">Lucia Varga, Transaction Services, Hollin Marsh</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell block" id="security">
+    <div class="grid">
+      <figure class="panel s-art">
+        <div data-illos>
+<!-- illos:security -->
+        </div>
+      </figure>
+      <div class="panel pad s-copy">
+        <p class="mono" style="color:var(--accent)">03 / Security</p>
+        <h2>Client files stay private.</h2>
+        <p>Client data runs your engagements and nothing else. Tallyfold never trains models on it, and every change is signed and kept.</p>
+        <ul class="ticks"><li>Never used for training</li><li>Encrypted at rest and in transit</li><li>Tested by outside firms yearly</li><li>Access set per engagement</li><li>Staff security team</li><li>A record of who changed what</li></ul>
+        <a class="go" href="#">Read the trust page</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell block" id="results">
+    <div class="head">
+      <p class="mono">04 / Results</p>
+      <h2>Hours back in busy season.</h2>
+      <p>Sample numbers from made-up firms in their first year.</p>
+    </div>
+    <div class="grid">
+      <div class="panel table-wrap">
+        <table class="results">
+          <caption class="mono">Time per task, old way and new</caption>
+          <thead><tr><th scope="col">Task</th><th scope="col">Before</th><th scope="col">With Tallyfold</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td class="task">Bank reconciliation</td><td class="before" data-label="Before"><small>Per account</small>40 min</td><td data-label="With Tallyfold"><small>Per account</small>5 min</td><td class="res" data-label="Result">Every account, every month</td></tr>
+            <tr><td class="task">Revenue cut-off test</td><td class="before" data-label="Before"><small>Per sample</small>3 hours</td><td data-label="With Tallyfold"><small>Whole year</small>25 min</td><td class="res" data-label="Result">All invoices, not a sample</td></tr>
+            <tr><td class="task">Lease schedule build</td><td class="before" data-label="Before"><small>Per lease</small>About 1 hour</td><td data-label="With Tallyfold"><small>Per lease</small>About 6 min</td><td class="res" data-label="Result">10x quicker</td></tr>
+            <tr><td class="task">Return tie-out</td><td class="before" data-label="Before"><small>Per return</small>Half a day</td><td data-label="With Tallyfold"><small>Per return</small>45 min</td><td class="res" data-label="Result">Half the review notes</td></tr>
+            <tr><td class="task">Earnings bridge</td><td class="before" data-label="Before"><small>Per deal</small>2 weeks</td><td data-label="With Tallyfold"><small>Per deal</small>3 days</td><td class="res" data-label="Result">Bid in before the deadline</td></tr>
+            <tr><td class="task">Bank confirmations</td><td class="before" data-label="Before"><small>Per client</small>Chased by email</td><td data-label="With Tallyfold"><small>Per client</small>One tracked list</td><td class="res" data-label="Result">$140 to $20 a client</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="panel pad story">
+        <div class="figure"><b>64%</b><span>Fewer review notes per file</span></div>
+        <blockquote>I sign off sooner because I can click any number and land on the page it came from.</blockquote>
+        <figcaption class="person"><i aria-hidden="true">JB</i><span><b>Jonas Brandt</b>Engagement Partner, Ashgrove Kemp</span></figcaption>
+      </figure>
+      <figure class="panel pad story">
+        <div class="figure"><b>2.7&times;</b><span>Engagements per manager</span></div>
+        <blockquote>Busy season used to mean working weekends. This year the team took them off, and the files came out cleaner.</blockquote>
+        <figcaption class="person"><i aria-hidden="true">WA</i><span><b>Wren Abernathy</b>Head of Assurance, Tolland Gray</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="shell block" id="faq">
+    <div class="grid">
+      <div class="faq-head">
+        <p class="mono">05 / FAQ</p>
+        <h2>What firms ask us first.</h2>
+        <p>Short answers for audit, tax and deal teams.</p>
+      </div>
+      <div class="panel faq">
+        <details open><summary>How soon can we run a real client file?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 5 4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Most firms run a live engagement within a week. We start from a test in the library and shape it to your method.</p></details>
+        <details><summary>Is client data used to train models?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 5 4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>No. Files run your engagements and are deleted when you say so. Access is set per engagement, and each change is recorded with a name and a time.</p></details>
+        <details><summary>And if a figure doesn't tie?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 5 4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Tallyfold marks the row, shows both values side by side and sends it to the reviewer you pick. It never chooses one value on its own.</p></details>
+        <details><summary>Can we export the workpapers?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 5 4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>Yes. Schedules, memos and slides export as ordinary spreadsheet, document and slide files, with each source link kept.</p></details>
+        <details><summary>Does it work with our practice software?<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 5 4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p>It links to most ledger and practice tools by API or an open protocol. If yours isn't covered, we build the link with you.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell block" id="start">
+    <div class="grid">
+      <div class="panel pad cta">
+        <div>
+          <h2>Send one client file. We'll tie it out on the call.</h2>
+          <form class="signup" id="signup" action="#" method="post" novalidate>
+            <label for="work-email">Work email</label>
+            <div class="row">
+              <input id="work-email" name="email" type="email" autocomplete="email" placeholder="name@yourfirm.com" required>
+              <button class="btn btn-main" type="submit">Pick a time</button>
+            </div>
+            <p class="note" id="signup-note" aria-live="polite">You'll get three slots for a half-hour call.</p>
+          </form>
+        </div>
+        <figure>
+          <blockquote>We sent our messiest client. Tallyfold tied out 96% of it before the call ended.</blockquote>
+          <figcaption class="person" style="margin-top:24px"><i aria-hidden="true">AL</i><span><b>Ada Lindqvist</b>Audit Partner, Fernhill &amp; Roe</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-top">
+      <div>
+        <a class="logo" href="#"><i aria-hidden="true"></i>Tallyfold</a>
+        <p><b>Audit workpapers</b> that show their sources.</p>
+      </div>
+      <div><h4 class="mono">Product</h4><ul><li><a href="#">Tie-out</a></li><li><a href="#">Test library</a></li><li><a href="#">Schedules and memos</a></li><li><a href="#">Integrations</a></li><li><a href="#">Review queue</a></li></ul></div>
+      <div><h4 class="mono">Practices</h4><ul><li><a href="#">Audit</a></li><li><a href="#">Tax</a></li><li><a href="#">Deal advisory</a></li><li><a href="#">Firm stories</a></li><li><a href="#">Pricing</a></li></ul></div>
+      <div><h4 class="mono">Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Jobs</a></li><li><a href="#">Trust</a></li><li><a href="#">Release notes</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="legal mono">
+      <span>&copy; 2026 Tallyfold. A made-up product. Firms and people named here are invented.</span>
+      <nav aria-label="Legal"><a href="#">Terms</a><a href="#">Privacy</a><a class="illos-credit" href="https://illos.dev/?utm_source=tallyfold-template&amp;utm_medium=example" rel="noopener"><svg viewBox="-26.8 0 400 400" aria-hidden="true"><path fill-rule="evenodd" d="M0,253.81 L0,100 L173.21,0 L346.41,100 L346.41,300 L173.21,400 L76.6,344.23 L76.6,204 L116.6,227.09 L116.6,321.13 L173.21,353.81 L306.41,276.91 L306.41,123.09 L173.21,46.19 L40,123.09 L40,276.91 Z M76.6,140 L116.6,163.09 L116.6,203.09 L76.6,180 Z"/></svg>Animated assets by Illos</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

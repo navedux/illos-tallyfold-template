@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env*
+.vercel/
+.DS_Store
+# Listing and working notes stay out of the download.
+listing.md
+NOTES.md
